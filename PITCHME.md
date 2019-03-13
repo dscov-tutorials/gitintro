@@ -37,9 +37,37 @@
 
 ---
 
-## @fa[git] basics
+## @fa[git] basics - Forking
 
-(stuff about forking)
+First, let's create our own copy of the repository this presentation is hosted on by **forking** it. Forking a repository is done when you want to a copy of a repository that someone else owns but you want to make your own changes to it for your own purposes.
+
+Go to the Github repo of this tutorial: [https://github.com/dscov-tutorials/gitintro](https://github.com/dscov-tutorials/gitintro).
+
++++
+
+Click on the Fork button in the upper right.
+
+![](img/fork)
+
++++
+
+It will ask where you want to fork it to. Pick your own account.
+
+![](img/wherefork)
+
++++
+
+Github will let you know it is forking the repo for a bit, then you will arrive at a complete copy of this repository, but now owned by you (which means you can make whatever changes to it that you want). You can tell it is a fork because it will say at the top in small font "forked from dscov-tutorials/gitintro".
+
+![](img/forkedfrom)
+
+Go ahead and clone the repository by going to the terminal and typing in the below.
+
+```bash
+git clone https://github.com/$USERNAME/gitintro.git
+```
+
+(In general you can get a clone address by clicking the green **Clone or download** icon on your repo's github page)
 
 ---
 
@@ -169,7 +197,7 @@ git commit -a -m "test.txt"
 git status
 ```
 
-```text
+```diff
 On branch master
 Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
@@ -191,25 +219,26 @@ Working Directory          | Local                      |   Remote
 
 `git log` will show a log of everyone's commits and messages.
 
-```text
+```diff
 commit 335531d99fd3987a169121307965e28e75de4dbf (HEAD -> master, origin/master, origin/HEAD)
 Author: August Guang <august.guang@gmail.com>
 Date:   Wed Mar 13 13:56:59 2019 -0400
 
     test.txt
+
 (and so on)
 ```
 
 +++
+@title[git push]
 
 `git push origin master` pushes everything from the local repository to the remote repository.
 
 ```bash
 git push origin master
-git status
 ```
 
-```text
+```diff
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (2/2), done.
@@ -220,12 +249,18 @@ To https://github.com/aguang/gitintro.git
    2fb5c0d..335531d  master -> master
 ```
 
-```text
+```bash
+git status
+```
+
+```diff
 On branch master
 Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
 ```
 
++++
+@title[git push]
 
 ```text
 Working Directory          | Local                      |   Remote
@@ -239,9 +274,13 @@ Working Directory          | Local                      |   Remote
 
 ---
 
+@title[local-remote]
+
 ![](img/git-local-remotes.png)
 
 ---
+
+@title[Commands for pulling from remote]
 
 ```bash
 # pull data from remote repo into local repo
@@ -264,7 +303,30 @@ git pull
 
 +++
 
-Original structure
+Let's first make a new branch called `example` on Github and add a file `newfile`. Go back to the view of your repository on the browser. It should look like you have a file `test.txt` in it now.
+
+![](test)
+
++++
+
+Click on the `Branch: **master**` icon. A window will appear with the ability to type in a new branch name. Type in `example`.
+
+![](newbranch)
+
++++
+
+Now you have and are on a new branch called `example`. Click on the "Create new file" icon. This will take you to an editing screen. Type in "newfile" inside Name your file... and put whatever you want into the blank text underneath. Then scroll down and hit the green "Commit new file" button.
+
+![](newfile)
+![](commitnew)
+
++++
+
+You have now created a new file `newfile` inside the branch `example` *remotely*. So how do we get it into local?
+
++++
+
+Current structure
 
 ```diff
 + remote
@@ -304,12 +366,26 @@ git branch
 git branch -r
 ```
 
-```text
+```bash
+(base) aguang@cis240l0htdh:~/CORE/workshops/dscov/test/gitintro$ git branch
+* master
+(base) aguang@cis240l0htdh:~/CORE/workshops/dscov/test/gitintro$ git branch -r
+  origin/HEAD -> origin/master
+  origin/master
 ```
 
 +++
 
 `git fetch` pulls data from remote repo into local repo.
+
+```bash
+git fetch
+```
+
+```bash
+From https://github.com/aguang/gitintro
+ * [new branch]      example        -> origin/example
+ ```
 
 ```diff
 + remote
@@ -341,7 +417,32 @@ master
 
 +++
 
+```bash
+git branch
+git branch -r
+```
+
+```bash
+(base) aguang@cis240l0htdh:~/CORE/workshops/dscov/test/gitintro$ git branch
+* master
+(base) aguang@cis240l0htdh:~/CORE/workshops/dscov/test/gitintro$ git branch -r
+  origin/HEAD -> origin/master
+  origin/example
+  origin/master
+```
+
++++
+
 `git checkout example` pulls in an exact copy from local.
+
+```bash
+git checkout example
+```
+
+```bash
+Branch 'example' set up to track remote branch 'example' from 'origin'.
+Switched to a new branch 'example'
+```
 
 ```diff
 + remote
@@ -374,7 +475,7 @@ example
 
 +++
 
-`git merge` merges everything from local current branch into working directory.
+`git merge $BRANCH` merges everything from local current branch $BRANCH into working directory.
 
 ```diff
 + remote
@@ -396,14 +497,25 @@ master                 | example
  └── README.md         |  └── README.md 
 
 - working directory
-master
+example
  ---                                          
  gitintro                                 
  ├── img                 
  |   ├── images.png
  ├── newfile
  ├── test.txt                                       
- └── README.md # but updated with the one from example!
+ └── README.md
+```
+
++++
+
+If some of your files get overwritten you may get merge conflicts. These you will have to fix file by file and line by line to decide which version you want to keep. The merge conflicts will be marked with text like
+
+```diff
+>>>>>>>>>>>HEAD
+code_version1
+<<<<<<<<<<<commit
+code_version2
 ```
 
 +++
@@ -441,7 +553,7 @@ NEW_BRANCH
 
 +++
 
-`git branch` tells you what branch you are on
+`git branch` tells you what branch you are on, this time with `NEW_BRANCH` added.
 
 ```bash
 git branch
