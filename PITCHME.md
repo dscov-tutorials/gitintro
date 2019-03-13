@@ -302,24 +302,27 @@ git checkout -b NEW_BRANCH
 git pull
 ```
 
-+++?text-left
++++
 
 Let's first make a new branch called `example` on Github and add a file `newfile`. Go back to the view of your repository on the browser. It should look like you have a file `test.txt` in it now.
 
-![](test.png)
+![](img/test.png)
 
 +++
 
-Click on the `Branch: **master**` icon. A window will appear with the ability to type in a new branch name. Type in `example`.
+Click on the Branch: **master** icon. A window will appear with the ability to type in a new branch name. Type in `example`.
 
-![](newbranch.png)
+![](img/newbranch.png)
 
 +++
 
-Now you have and are on a new branch called `example`. Click on the "Create new file" icon. This will take you to an editing screen. Type in "newfile" inside Name your file... and put whatever you want into the blank text underneath. Then scroll down and hit the green "Commit new file" button.
+Now you have and are on a new branch called `example`. Click on the "Create new file" icon. This will take you to an editing screen. Type in "newfile" inside Name your file... and put whatever you want into the blank text underneath.
 
-![](newfile.png)
-![](commitnew.png)
+![](img/newfile.png)
+
+Then scroll down and hit the green "Commit new file" button.
+
+![](img/commitnew.png)
 
 +++
 
