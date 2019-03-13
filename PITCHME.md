@@ -85,24 +85,27 @@ git push
 ```diff
 On branch master
 Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
 ```
 
 ```text
-Working Directory       | Local                   |	Remote
+Working Directory       | Local                   | Remote
  ---                    | ---                     |
-gitintro				| gitintro				  | gitintro
-├── img 				| ├── img 				  | ├── img 	
-|   └── images.png 		| |   └── images.png 	  | |   └── images.png
-├── PITCHME.md 			| ├── PITCHME.md 		  | ├── PITCHME.md 
-└── README.md     		| └── README.md           | └── README.md 
+gitintro                | gitintro                | gitintro
+├── img                 | ├── img                 | ├── img     
+|   └── images.png      | |   └── images.png      | |   └── images.png
+├── PITCHME.md          | ├── PITCHME.md          | ├── PITCHME.md 
+└── README.md           | └── README.md           | └── README.md 
 ```
 
 +++
 
-Let's add a file.
+Let's create a file.
 
 ```bash
 echo "test" > test.txt
+git status
 ```
 
 ```diff
@@ -112,16 +115,18 @@ Your branch is up to date with 'origin/master'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	- test.txt
+    - test.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 ```text
-Working Directory       | Local                   |	Remote
+Working Directory       | Local                   | Remote
  ---                    | ---                     |
- gitintro                |  gitintro                |  gitintro 
- ├── img        		|  ├── img        		  |  ├── img
- |   ├── images.png   	|  |   ├── images.png     |  |   ├── images.png
- ├── test.txt		    |  └── README.md          |  └── README.md
+ gitintro               |  gitintro               |  gitintro 
+ ├── img                |  ├── img                |  ├── img
+ |   ├── images.png     |  |   ├── images.png     |  |   ├── images.png
+ ├── test.txt           |  └── README.md          |  └── README.md
  └── README.md          |                         |
 ```
 
@@ -142,16 +147,16 @@ Your branch is up to date with 'origin/master'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-	new file:  test.txt/
+    new file:  test.txt/
 ```
 
 ```text
-Working Directory       | Local                   |	Remote
+Working Directory       | Local                   | Remote
  ---                    | ---                     |
  gitintro               |  gitintro               |  gitintro 
- ├── img        		|  ├── img        		  |  ├── img
- |   ├── images.png   	|  |   ├── images.png     |  |   ├── images.png
- ├── test.txt 		    |  └── README.md          |  └── README.md
+ ├── img                |  ├── img                |  ├── img
+ |   ├── images.png     |  |   ├── images.png     |  |   ├── images.png
+ ├── test.txt           |  └── README.md          |  └── README.md
  └── README.md          |                         |
 ```
 
@@ -166,17 +171,33 @@ git status
 
 ```text
 On branch master
-Your branch is up to date with 'origin/master'.
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
 ```
 
 ```text
-Working Directory          | Local                      |	Remote
+Working Directory          | Local                      |   Remote
  ---                       | ---                        |
  gitintro                  |  gitintro                  |  gitintro 
- ├── img           		   |  ├── img           		|  ├── img
- |   ├── images.png        |  |   ├── images.png      	|  |   ├── images.png
- ├── test.txt		       |  ├── test.txt         		|  └── README.md 
+ ├── img                   |  ├── img                   |  ├── img
+ |   ├── images.png        |  |   ├── images.png        |  |   ├── images.png
+ ├── test.txt              |  ├── test.txt              |  └── README.md 
  └── README.md             |  └── README.md             |  
+```
+
++++
+
+`git log` will show a log of everyone's commits and messages.
+
+```text
+commit 335531d99fd3987a169121307965e28e75de4dbf (HEAD -> master, origin/master, origin/HEAD)
+Author: August Guang <august.guang@gmail.com>
+Date:   Wed Mar 13 13:56:59 2019 -0400
+
+    test.txt
+(and so on)
 ```
 
 +++
@@ -189,6 +210,17 @@ git status
 ```
 
 ```text
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 274 bytes | 274.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/aguang/gitintro.git
+   2fb5c0d..335531d  master -> master
+```
+
+```text
 On branch master
 Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
@@ -196,12 +228,12 @@ Your branch is ahead of 'origin/master' by 1 commit.
 
 
 ```text
-Working Directory          | Local                      |	Remote
+Working Directory          | Local                      |   Remote
  ---                       | ---                        |
  gitintro                  |  gitintro                  |  gitintro 
- ├── img           		   |  ├── img           		|  ├── img
- |   ├── images.png        |  |   ├── images.png      	|  |   ├── images.png
- ├── test.txt     	       |  ├── test.txt         		|  ├── test.txt 
+ ├── img                   |  ├── img                   |  ├── img
+ |   ├── images.png        |  |   ├── images.png        |  |   ├── images.png
+ ├── test.txt              |  ├── test.txt              |  ├── test.txt 
  └── README.md             |  └── README.md             |  └── README.md
 ```
 
@@ -214,16 +246,18 @@ Working Directory          | Local                      |	Remote
 ```bash
 # pull data from remote repo into local repo
 git fetch
+# tells you what branch you have locally and what
+# branch your working directory is on
+git branch
+# tells you what branch you have remotely
+git branch -r
+# used to navigate between branches on the local repo
+# need to run git fetch first to pull in branches
+git checkout branch
 # merges data from local repo into working directory
 git merge
-# used to navigate between examplees on the local repo
-# need to run git fetch first to pull in examplees
-git checkout example
-# used to create a new example
-git checkout -b NEW_example
-# tells you what examplees you have locally and what
-# example your working directory is on
-git example
+# used to create a new branch
+git checkout -b NEW_BRANCH
 # combines fetch & merge all at once
 git pull
 ```
@@ -237,9 +271,9 @@ Original structure
 master                 | example                   
  ---                   | ---                       
  gitintro              |  gitintro                  
- ├── img       		   |  ├── img           
+ ├── img               |  ├── img           
  |   ├── images.png    |  |   ├── images.png 
- ├── test.txt 	       |  ├── newfile
+ ├── test.txt          |  ├── newfile
  └── README.md         |  └── README.md                                           
      
 
@@ -261,7 +295,17 @@ master
  ├── test.txt                              
  └── README.md                
 ```
++++
 
+`git branch` tells you what branch you are on. `git branch -r` tells you what you have in your remote.
+
+```bash
+git branch
+git branch -r
+```
+
+```text
+```
 
 +++
 
@@ -272,18 +316,18 @@ master
 master                 | example                    
  ---                   | ---                       
  gitintro              |  gitintro                  
- ├── img       		   |  ├── img           
+ ├── img               |  ├── img           
  |   ├── images.png    |  |   ├── images.png 
  ├── test.txt          |  ├── newfile    
- └── README.md 		   |  └── README.md                                       
+ └── README.md         |  └── README.md                                       
 
 - local
 master                 | example                    
  ---                   | ---                       
  gitintro              |  gitintro                  
- ├── img       		   |  ├── img           
+ ├── img               |  ├── img           
  |   ├── images.png    |  |   ├── images.png 
- ├── test.txt     	   |  ├── newfile                                         
+ ├── test.txt          |  ├── newfile                                         
  └── README.md         |  └── README.md  
 
 - working directory
@@ -297,14 +341,47 @@ master
 
 +++
 
-`git merge` merges everything from local current example into working directory.
+`git checkout example` pulls in an exact copy from local.
 
 ```diff
 + remote
 master                 | example                    
  ---                   | ---                       
  gitintro              |  gitintro                  
- ├── img       		   |  ├── img           
+ ├── img               |  ├── img           
+ |   ├── images.png    |  |   ├── images.png 
+ ├── test.txt          |  ├── newfile                                          
+ └── README.md         |  └── README.md 
+
+- local
+master                 | example                    
+ ---                   | ---                       
+ gitintro              |  gitintro                  
+ ├── img               |  ├── img           
+ |   ├── images.png    |  |   ├── images.png 
+ ├── test.txt          |  ├── newfile                                           
+ └── README.md         |  └── README.md 
+
+- working directory
+example
+ ---                                          
+ gitintro                                 
+ ├── img                 
+ |   ├── images.png
+ ├── newfile                           
+ └── README.md
+```
+
++++
+
+`git merge` merges everything from local current branch into working directory.
+
+```diff
++ remote
+master                 | example                    
+ ---                   | ---                       
+ gitintro              |  gitintro                  
+ ├── img               |  ├── img           
  |   ├── images.png    |  |   ├── images.png 
  ├── test.txt          |  ├── newfile                                         
  └── README.md         |  └── README.md   
@@ -313,7 +390,7 @@ master                 | example
 master                 | example                    
  ---                   | ---                       
  gitintro              |  gitintro                  
- ├── img       		   |  ├── img           
+ ├── img               |  ├── img           
  |   ├── images.png    |  |   ├── images.png 
  ├── test.txt          |  ├── newfile                                           
  └── README.md         |  └── README.md 
@@ -331,39 +408,6 @@ master
 
 +++
 
-`git checkout example` now pulls in an exact copy from local.
-
-```diff
-+ remote
-master                 | example                    
- ---                   | ---                       
- gitintro              |  gitintro                  
- ├── img       		   |  ├── img           
- |   ├── images.png    |  |   ├── images.png 
- ├── test.txt          |  ├── newfile                                          
- └── README.md         |  └── README.md 
-
-- local
-master                 | example                    
- ---                   | ---                       
- gitintro              |  gitintro                  
- ├── img       		   |  ├── img           
- |   ├── images.png    |  |   ├── images.png 
- ├── test.txt     	   |  ├── newfile                                           
- └── README.md         |  └── README.md 
-
-- working directory
-example
- ---                                          
- gitintro                                 
- ├── img                 
- |   ├── images.png
- ├── newfile                           
- └── README.md
-```
-
-+++
-
 `git checkout -b NEW_BRANCH` creates a new branch locally and switches the working directory over.
 
 ```diff
@@ -371,19 +415,19 @@ example
 master                 | example                    
  ---                   | ---                       
  gitintro              |  gitintro                  
- ├── img       		   |  ├── img           
+ ├── img               |  ├── img           
  |   ├── images.png    |  |   ├── images.png 
- ├── test.txt     	   |  ├── newfile                                           
+ ├── test.txt          |  ├── newfile                                           
  └── README.md         |  └── README.md
 
 - local
 master                 | example                 | NEW_BRANCH   
  ---                   | ---                     | ---   
  gitintro              |  gitintro               | gitintro   
- ├── img       		   |  ├── img       		 | ├── img      
+ ├── img               |  ├── img                | ├── img      
  |   ├── images.png    |  |   ├── images.png     | |   ├── images.png
  ├── test.txt          |  ├── newfile            | ├── newfile                 
- └── README.md         |  └── README.md 		 | └── README.md
+ └── README.md         |  └── README.md          | └── README.md
 
 - working directory
 NEW_BRANCH
@@ -402,6 +446,7 @@ NEW_BRANCH
 ```bash
 git branch
 * NEW_BRANCH
+  example
   master
 ```
 
@@ -414,7 +459,7 @@ git push
 fatal: The current branch NEW_BRANCH has no upstream example.
 To push the current branch and set the remote as upstream, use
 
-    git push --set-upstream origin NEW_example
+    git push --set-upstream origin NEW_BRANCH
 ```
 
 ---
