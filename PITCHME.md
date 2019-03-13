@@ -304,7 +304,9 @@ git pull
 
 +++
 
+@snap[text-left text-10]
 Let's first make a new branch called `example` on Github and add a file `newfile`. Go back to the view of your repository on the browser. It should look like you have a file `test.txt` in it now.
+@snapend
 
 ![](img/test.png)
 
@@ -316,9 +318,13 @@ Click on the Branch: **master** icon. A window will appear with the ability to t
 
 +++
 
-Now you have and are on a new branch called `example`. Click on the "Create new file" icon. This will take you to an editing screen. Type in "newfile" inside Name your file... and put whatever you want into the blank text underneath.
+@snap[text-left text-10]
+Now you are on a new branch called `example`. Click on the "Create new file" icon. This will take you to an editing screen. Type in "newfile" inside Name your file... and put whatever you want into the blank text underneath.
+@snapend
 
 ![](img/newfile.png)
+
++++
 
 Then scroll down and hit the green "Commit new file" button.
 
