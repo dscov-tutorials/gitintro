@@ -39,7 +39,8 @@
 
 ## @fa[git] basics - Forking
 
-First, let's create our own copy of the repository this presentation is hosted on by **forking** it. Forking a repository is done when you want to a copy of a repository that someone else owns but you want to make your own changes to it for your own purposes.
+ * First, let's create our own copy of the repository this presentation is hosted on by **forking** it.
+ * Forking a repository is done when you want to a copy of a repository that someone else owns but you want to make your own changes to it for your own purposes.
 
 Go to the Github repo of this tutorial: [https://github.com/dscov-tutorials/gitintro](https://github.com/dscov-tutorials/gitintro).
 
@@ -47,19 +48,19 @@ Go to the Github repo of this tutorial: [https://github.com/dscov-tutorials/giti
 
 Click on the Fork button in the upper right.
 
-![](img/fork)
+![](img/fork.png)
 
 +++
 
 It will ask where you want to fork it to. Pick your own account.
 
-![](img/wherefork)
+![](img/wherefork.png)
 
 +++
 
-Github will let you know it is forking the repo for a bit, then you will arrive at a complete copy of this repository, but now owned by you (which means you can make whatever changes to it that you want). You can tell it is a fork because it will say at the top in small font "forked from dscov-tutorials/gitintro".
+After a bit, Github will redirect you to a complete copy of this repo, but now owned by you. You can tell it is a fork because it will say at the top in small font "forked from dscov-tutorials/gitintro".
 
-![](img/forkedfrom)
+![](img/forkedfrom.png)
 
 Go ahead and clone the repository by going to the terminal and typing in the below.
 
@@ -301,24 +302,24 @@ git checkout -b NEW_BRANCH
 git pull
 ```
 
-+++
++++?text-left
 
 Let's first make a new branch called `example` on Github and add a file `newfile`. Go back to the view of your repository on the browser. It should look like you have a file `test.txt` in it now.
 
-![](test)
+![](test.png)
 
 +++
 
 Click on the `Branch: **master**` icon. A window will appear with the ability to type in a new branch name. Type in `example`.
 
-![](newbranch)
+![](newbranch.png)
 
 +++
 
 Now you have and are on a new branch called `example`. Click on the "Create new file" icon. This will take you to an editing screen. Type in "newfile" inside Name your file... and put whatever you want into the blank text underneath. Then scroll down and hit the green "Commit new file" button.
 
-![](newfile)
-![](commitnew)
+![](newfile.png)
+![](commitnew.png)
 
 +++
 
