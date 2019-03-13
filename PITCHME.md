@@ -304,7 +304,7 @@ git pull
 
 +++
 
-@snap[text-left text-10]
+@snap[text-left text-05]
 Let's first make a new branch called `example` on Github and add a file `newfile`. Go back to the view of your repository on the browser. It should look like you have a file `test.txt` in it now.
 @snapend
 
