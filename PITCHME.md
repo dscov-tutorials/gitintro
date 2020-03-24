@@ -79,14 +79,14 @@ git clone https://github.com/$USERNAME/gitintro.git
 ```
 
 @snap[text-left text-06]
-(In general you can get a clone address by clicking the green **Clone or download** icon on your repo's github page)
+(In general you can get a clone address by clicking the green *Clone or download* icon on your repo's github page)
 @snapend
 
 ---
 
 ## @fa[git] basics
 
- * **repository or repo:** where documents, software, etc is stored and the changes are tracked
+ * *repository or repo:* where documents, software, etc is stored and the changes are tracked
 
 ```text
 gitintro
@@ -130,7 +130,7 @@ Your branch is up to date with 'origin/master'.
 nothing to commit, working tree clean
 ```
 
-```text
+```diff
 Working Directory       | Local                   | Remote
  ---                    | ---                     |
 gitintro                | gitintro                | gitintro
@@ -161,7 +161,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-```text
+```diff
 Working Directory       | Local                   | Remote
  ---                    | ---                     |
  gitintro               |  gitintro               |  gitintro 
@@ -191,7 +191,7 @@ Changes to be committed:
     new file:  test.txt/
 ```
 
-```text
+```diff
 Working Directory       | Local                   | Remote
  ---                    | ---                     |
  gitintro               |  gitintro               |  gitintro 
@@ -218,7 +218,7 @@ Your branch is ahead of 'origin/master' by 1 commit.
 nothing to commit, working tree clean
 ```
 
-```text
+```diff
 Working Directory          | Local                      |   Remote
  ---                       | ---                        |
  gitintro                  |  gitintro                  |  gitintro 
@@ -275,7 +275,7 @@ Your branch is ahead of 'origin/master' by 1 commit.
 +++
 @title[git push]
 
-```text
+```diff
 Working Directory          | Local                      |   Remote
  ---                       | ---                        |
  gitintro                  |  gitintro                  |  gitintro 
