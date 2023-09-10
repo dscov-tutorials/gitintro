@@ -10,6 +10,7 @@ This is a repo containing a Jupyter slides presentation that is an introduction 
 | March 13, 2019 | DSCoV intro to git | PITCHME.md |
 | May 4, 2021 | [CCV Research Computing Bootcamp](https://docs.ccv.brown.edu/bootcamp2021/) | gitintro.ipynb
 | June 8, 2022 | [CCV Research Computing Bootcamp](https://docs.ccv.brown.edu/bootcamp-2022/schuedule/wednesday-5-may) | gitintro.ipynb
+| September 15, 2023 | Reproducibility workshop for Population Studies department | gitintro.ipynb
 
 ## Pre-reqs
 
